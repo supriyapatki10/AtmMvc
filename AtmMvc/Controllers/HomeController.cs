@@ -11,27 +11,11 @@ namespace AtmMvc.Controllers
     public class HomeController : Controller
     {
         private IAtmManager atmManager;
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-
-
+        
         public ActionResult Index()
         {
             if (Request["txt"] != null)
-            {
-                //    if (Request["txt"][Request["txt"].Length - 1] == '+' || Request["txt"][Request["txt"].Length - 1] == '-' || Request["txt"][Request["txt"].Length - 1] == '*' || Request["txt"][Request["txt"].Length - 1] == '/')
-                //    {
-                //        ViewBag.flag = 0;
-                //        ViewBag.result = Request["txt"];
-                //    }
-                //    else
-                //    {
-                //ViewBag.result = GetResult(Request["txt"]);
-
-                //ViewBag.result = CalculateCashWithdrawalCurrency(Request["txt"]);
-                //ViewBag.flag = 1;
+            {              
                 ViewBag.Total = Request["txt"];
                 List<Currency> lstAllCurrencies = new List<Currency>();
                 ViewBag.Model = lstAllCurrencies = CalculateCashWithdrawalCurrency(Request["txt"]);
@@ -39,9 +23,7 @@ namespace AtmMvc.Controllers
                 ViewBag.BigCoins = lstAllCurrencies.Where(a => a.CurrencyType == Common.Enums.DemoninationType.BigCoins);
                 ViewBag.SmallCoins = lstAllCurrencies.Where(a => a.CurrencyType == Common.Enums.DemoninationType.SmallCoins);
 
-                return View("About", ViewBag);
-
-                //}
+                return View("Deposit", ViewBag);
             }
             return View();
 
@@ -49,19 +31,12 @@ namespace AtmMvc.Controllers
         }
 
 
-        public ActionResult About()
+        public ActionResult Deposit()
         {
             ViewBag.Message = "Your application description page.";
-            ViewBag.model = new List<Currency>();
+            ViewBag.Model = ViewBag.Notes = ViewBag.BigCoins = ViewBag.SmallCoins = new List<Currency>();
             return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        }      
 
 
         public string GetResult(string str)

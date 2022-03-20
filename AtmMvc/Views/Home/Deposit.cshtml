@@ -12,7 +12,7 @@
         <h2 style="text-align:center">Depositing</h2>
         <br />
         <div id="deposit" class="container">
-            @using (@Html.BeginForm("About", "Home"))
+            @using (@Html.BeginForm("Deposit", "Home"))
             {
                 @Html.Label("lblTotalCash", (" £ " + (string)ViewBag.Total))
             <table class="table">
@@ -196,10 +196,7 @@
         border:solid thin
     }
 
-    #deposit {
-        /*border: 1px solid black;*/
-        /* height: 340px;
-        width: 340px;*/
+    #deposit {     
         Font-family: Helvetica Neue,Helvetica,Arial,Sans-serif;
         Font-size: 40px;
         font-weight: bold;
@@ -217,6 +214,7 @@
 
     #btnCoin { /*styles*/
         background-image: url("../../Images/coin.png");
+        /*background-image: url("../../Images/500-toggle.png");*/
         height: 70px;
         width: 130px;
     }
@@ -224,9 +222,5 @@
     .lblFont {
         font-size: 20px;
         width: 200px;
-    }
-
-    td {
-        align-content: center;
-    }
+    }   
 </style>

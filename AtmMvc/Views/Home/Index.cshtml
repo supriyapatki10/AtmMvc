@@ -1,13 +1,7 @@
 ﻿<script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 
-    $(function () {
-        $("#formIndex").submit(function (e) {
-            if (document.getElementById("txt").value > 100000) {
-                alert('Sorry!! Withdrawal limit is 100000. Please select Lower amount.');
-                e.preventDefault();
-            }
-        });
+    $(function () {     
 
         $("#txt").keypress(function (e) {
             if (String.fromCharCode(e.keyCode).match(/[^0-9+-/*]/g)) return false;
@@ -146,6 +140,13 @@
                 return max;
             else return value;
         }     
+
+        $("#formIndex").submit(function (e) {
+            if (parseInt(document.getElementById("txt").value) > 100000) {
+                alert('Sorry!! Withdrawal limit is 100000. Please select Lower amount.');
+                e.preventDefault();
+            }
+        });
     });
 </script>
 <style>
@@ -159,10 +160,7 @@
         border-color: white;
     }
 
-    #d1 {
-        /*border: 1px solid black;*/
-        /* height: 340px;
-        width: 340px;*/
+    #d1 {       
         Font-family: Helvetica Neue,Helvetica,Arial,Sans-serif;
         Font-size: 30px;
         font-weight: normal; 
@@ -180,41 +178,22 @@
     }
 
     input[type="button"] { /*styles*/
-        background-image: url("../../Images/500.png");
-        /*     height:75px;
-        width:135px;*/
+        background-image: url("../../Images/500.png");       
         height: 58px;
         width: 59px;
     }
 
         input[type="button"]:hover {
-            /*background: url("images/card-front.jpg") no-repeat;*/
             background-image: url("../../Images/500-toggle.png");
             color: #2bbed3;
         }
 
-    td {
-        background-color: #2bbed3;
-        color: white;
-        border-style: hidden;
-       
-    }
-/**/
+
   
     .back-arrow{
         height: 70px;
         width: 70px;
-    }
-
-
-    /*#eq {*/ /*styles*/
-        /*background-color: #2bbed3;
-        border-radius: 50px;
-        flex-grow: 2;
-        border: solid;
-        width: -webkit-fill-available;
-    }*/
-
+    }  
 
 
     #eq { /*styles*/
@@ -239,39 +218,24 @@
         @using (@Html.BeginForm("Index", "Home", new { id = "formIndex" }))
         {
             <h2 style="font-weight:bold">Select Amount</h2>
-
-            @*<h3 style="align-content:center; text-align:center"> @Html.TextBox("txt") </h3>*@
-
-            <table>
-                @*<tr>
-                    <td colspan="4">
-                        <center>
-                            <h2>Select Amount</h2>
-                        </center>
-                    </td>
-                </tr>*@
+            <table>               
                 <tr style="height:50px;">
-                    @*<td colspan="5"> £ @Html.TextBox("txt")</td>*@
-
                     <td colspan="5"> £ <input id="txt" name="txt" type="text" onkeyup="this.value = minmax(this.value, 0, 100)"/></td>
                 </tr>
                 <tr>
                     <td><input type="button" id="b1" value="1" /></td>
                     <td><input type="button" id="b2" value="2" /></td>
                     <td><input type="button" id="b3" value="3" /></td>
-                    @*<td><input type="button" id="sub" value="-" /></td>*@
                 </tr>
                 <tr>
                     <td><input type="button" id="b4" value="4" /></td>
                     <td><input type="button" id="b5" value="5" /></td>
                     <td><input type="button" id="b6" value="6" /></td>
-                    @*<td><input type="button" id="multy" value="*" /></td>*@
                 </tr>
                 <tr>
                     <td><input type="button" id="b7" value="7" /></td>
                     <td><input type="button" id="b8" value="8" /></td>
                     <td><input type="button" id="b9" value="9" /></td>
-                    @*<td><input type="button" id="div" value="/" /></td>*@
                 </tr>
                 <tr>
                     <td>
@@ -280,16 +244,7 @@
                     <td><input type="button" id="b0" value="0" /></td>
                     <td></td>
 
-                </tr>
-
-                @*<tr>
-                    <td></td>
-                    <td>
-                        <input type="submit" id="eq" value="Submit" />
-                    </td>
-                    <td></td>
-
-                </tr>*@
+                </tr>              
 
             </table>
             <br />
