@@ -143,7 +143,7 @@
 
         $("#formIndex").submit(function (e) {
             if (parseInt(document.getElementById("txt").value) > 100000) {
-                alert('Sorry!! Withdrawal limit is 100000. Please select Lower amount.');
+                alert('Sorry!! Withdrawal limit is £ 100000. Please select Lower amount.');
                 e.preventDefault();
             }
         });
@@ -208,14 +208,11 @@
 <br />
 <br />
 <br />
-<br />
-<br />
-<br />
-<br />
+
 <center> 
 
     <div id="d1">
-        @using (@Html.BeginForm("Index", "Home", new { id = "formIndex" }))
+        @using (@Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "formIndex" , @class="formIndex"}))
         {
             <h2 style="font-weight:bold">Select Amount</h2>
             <table>               
