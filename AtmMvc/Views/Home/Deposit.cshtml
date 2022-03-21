@@ -5,198 +5,216 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<br />
+<br />
+<br />
+
 <center>
     <div class="wrapper">
-        <a href="javascript:void(0);" onclick="history.go(-1);" style="background-image:url(../../Images/back-arrow-icon.png)">back</a>
 
-        <h2 style="text-align:center">Depositing</h2>
+        <a href="javascript:void(0);" onclick="history.go(-1);" class="back">back</a>
+
+        <h2 style="font-weight:bold">Depositing</h2>
+
+     
         <br />
+        <br />
+
         <div id="deposit" class="container">
             @using (@Html.BeginForm("Deposit", "Home"))
             {
                 @Html.Label("lblTotalCash", (" £ " + (string)ViewBag.Total))
-            <table class="table">
+                <table class="table">
 
-                @*@foreach (var item in ViewBag.Model)
-        {
-            <tbody>
-                <tr>
-                    @if (item.CurrencyType == DemoninationType.Notes)
-                    {
-                        <td>
-                            <input type="button" id="btnNote" />
-                            @(item.CurrencyCount + " * " + item.CurrencyAmount)
-                        </td>
-
-                    }
-
-                    @if (item.CurrencyType == DemoninationType.BigCoins)
-                    {
-                        <td>
-                            <input type="button" id="btnCoin" />
-                            @(item.CurrencyCount + " * " + item.CurrencyAmount)
-                        </td>
-                    }
-                    @if (item.CurrencyType == DemoninationType.SmallCoins)
-                    {
-
-                        <td>
-                            <input type="button" id="btnCoin" />
-                            @(item.CurrencyCount + " * " + item.CurrencyAmount)
-                        </td>
-                    }
-
-                </tr>
-            </tbody>
-        }*@
-
-
-                @*displays 3 columns per row
-        <tbody>
-            <tr>
-                @{ var i = 0; }
-                @foreach (var item in ViewBag.Model)
-                {
-                    <td>
-                        @if (item.CurrencyType == DemoninationType.Notes)
+                    @*@foreach (var item in ViewBag.Model)
                         {
-                            <input type="button" id="btnNote" />
-                            @(item.CurrencyCount + " * " + item.CurrencyAmount)
-                        }
-
-                        @if (item.CurrencyType == DemoninationType.BigCoins)
-                        {
-                            <input type="button" id="btnCoin" />
-                            @(item.CurrencyCount + " * " + item.CurrencyAmount)
-                        }
-                        @if (item.CurrencyType == DemoninationType.SmallCoins)
-                        {
-                            <input type="button" id="btnCoin" />
-                            @(item.CurrencyCount + " * " + item.CurrencyAmount)
-                        }
-                    </td>
-
-                    if (++i % 3 == 0)
-                    {
-                    @:</tr><tr>
-                    }
-
-                }
-            </tr>
-        </tbody>*@
-
-
-                <tbody>
-                    <tr>
-
-                        <td>
-                            <table>
-                                @foreach (var item in ViewBag.Notes)
-                                {
-                                    <tr class="addBorder">
+                            <tbody>
+                                <tr>
+                                    @if (item.CurrencyType == DemoninationType.Notes)
+                                    {
                                         <td>
                                             <input type="button" id="btnNote" />
                                             @(item.CurrencyCount + " * " + item.CurrencyAmount)
                                         </td>
-                                    </tr>
+
+                                    }
+
+                                    @if (item.CurrencyType == DemoninationType.BigCoins)
+                                    {
+                                        <td>
+                                            <input type="button" id="btnCoin" />
+                                            @(item.CurrencyCount + " * " + item.CurrencyAmount)
+                                        </td>
+                                    }
+                                    @if (item.CurrencyType == DemoninationType.SmallCoins)
+                                    {
+
+                                        <td>
+                                            <input type="button" id="btnCoin" />
+                                            @(item.CurrencyCount + " * " + item.CurrencyAmount)
+                                        </td>
+                                    }
+
+                                </tr>
+                            </tbody>
+                        }*@
+
+
+                    @*displays 3 columns per row
+                        <tbody>
+                            <tr>
+                                @{ var i = 0; }
+                                @foreach (var item in ViewBag.Model)
+                                {
+                                    <td>
+                                        @if (item.CurrencyType == DemoninationType.Notes)
+                                        {
+                                            <input type="button" id="btnNote" />
+                                            @(item.CurrencyCount + " * " + item.CurrencyAmount)
+                                        }
+
+                                        @if (item.CurrencyType == DemoninationType.BigCoins)
+                                        {
+                                            <input type="button" id="btnCoin" />
+                                            @(item.CurrencyCount + " * " + item.CurrencyAmount)
+                                        }
+                                        @if (item.CurrencyType == DemoninationType.SmallCoins)
+                                        {
+                                            <input type="button" id="btnCoin" />
+                                            @(item.CurrencyCount + " * " + item.CurrencyAmount)
+                                        }
+                                    </td>
+
+                                    if (++i % 3 == 0)
+                                    {
+                                    @:</tr><tr>
+                                    }
+
                                 }
+                            </tr>
+                        </tbody>*@
+
+
+                    <tbody>
+                        <tr>
+
+                            <td width="34%">
+                                <table>
+                                    @foreach (var item in ViewBag.Notes)
+                                    {
+                                        <tr class="addBorder">
+                                            <td width="34%">
+                                                <input type="button" id="btnNote" />
+                                            </td>
+                                            <td width="34%" style="font-weight:normal">
+                                                @(item.CurrencyCount + " x " + item.CurrencyAmount)
+                                            </td>
+                                        </tr>
+                                    }
 
                                 </table>
-                        </td>
-                        <td>
-                            <table>
-                                @foreach (var item in ViewBag.BigCoins)
-                                {
-                                    <tr class="addBorder">
-                                        <td>
-                                            <input type="button" id="btnCoin" />
-                                            @(item.CurrencyCount + " * " + item.CurrencyAmount)
-                                        </td>
-                                    </tr>
-                                }
+                            </td>
+                            <td  width="33%">
+                                <table>
+                                    @foreach (var item in ViewBag.BigCoins)
+                                    {
+                                        <tr class="addBorder">
+                                            <td width="33%">
+                                                <input type="button" id="btnCoin" />
+                                            </td>
+                                            <td width="33%"  style="font-weight:normal">
+                                                @(item.CurrencyCount + " x " + item.CurrencyAmount)
+                                            </td>
+                                        </tr>
+                                    }
 
-                            </table>
-                        </td>
-                        <td>
-                            <table>
-                                @foreach (var item in ViewBag.SmallCoins)
-                                {
-                                    <tr class="addBorder">
-                                        <td>
-                                            <input type="button" id="btnCoin" />
-                                            @(item.CurrencyCount + " * " + item.CurrencyAmount)
-                                        </td>
-                                    </tr>
-                                }
+                                </table>
+                            </td>
+                            <td  width="33%">
+                                <table>
+                                    @foreach (var item in ViewBag.SmallCoins)
+                                    {
+                                        <tr class="addBorder">
+                                            <td width="33%">
+                                                <input type="button" id="btnCoin" />
+                                            </td>
+                                            <td width="33%"  style="font-weight:normal">
+                                                @(item.CurrencyCount + " x " + item.CurrencyAmount)
+                                            </td>
+                                        </tr>
+                                    }
 
-                            </table>
-                        </td>                       
-                    </tr>
-                </tbody>
-            </table>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             }
         </div>
 
         @*displays columns as rows
-        <div style="display: inline-block">
+            <div style="display: inline-block">
 
-            @for (var i = 0; i < ViewBag.Model.Count; i++)
-            {
-
-                <div style="display: inline-block">
-
-                    <div >
-                        @if (ViewBag.Model[i].CurrencyType == DemoninationType.Notes)
-                        {
-                            <input type="button" id="btnNote" />
-                            @(ViewBag.Model[i].CurrencyCount + " * " + ViewBag.Model[i].CurrencyAmount)
-                        }
-                    </div>
-                    <div>
-                        @if (ViewBag.Model[i].CurrencyType == DemoninationType.BigCoins)
-                        {
-                            <input type="button" id="btnCoin" />
-                            @(ViewBag.Model[i].CurrencyCount + " * " + ViewBag.Model[i].CurrencyAmount)
-                        }
-                    </div>
-                    <div>
-                        @if (ViewBag.Model[i].CurrencyType == DemoninationType.SmallCoins)
-                        {
-                            <input type="button" id="btnCoin" />
-                            @(ViewBag.Model[i].CurrencyCount + " * " + ViewBag.Model[i].CurrencyAmount)
-                        }
-                    </div>
-
-                </div>
-
-                if (i % 3 == 2)
+                @for (var i = 0; i < ViewBag.Model.Count; i++)
                 {
-                    <br />
-                }
-            }
-        </div>*@
 
-        @Html.Label("lblThanks", ("Thank you for using Enalyzer ATM") , new { @class = "lblFont"})
+                    <div style="display: inline-block">
+
+                        <div >
+                            @if (ViewBag.Model[i].CurrencyType == DemoninationType.Notes)
+                            {
+                                <input type="button" id="btnNote" />
+                                @(ViewBag.Model[i].CurrencyCount + " * " + ViewBag.Model[i].CurrencyAmount)
+                            }
+                        </div>
+                        <div>
+                            @if (ViewBag.Model[i].CurrencyType == DemoninationType.BigCoins)
+                            {
+                                <input type="button" id="btnCoin" />
+                                @(ViewBag.Model[i].CurrencyCount + " * " + ViewBag.Model[i].CurrencyAmount)
+                            }
+                        </div>
+                        <div>
+                            @if (ViewBag.Model[i].CurrencyType == DemoninationType.SmallCoins)
+                            {
+                                <input type="button" id="btnCoin" />
+                                @(ViewBag.Model[i].CurrencyCount + " * " + ViewBag.Model[i].CurrencyAmount)
+                            }
+                        </div>
+
+                    </div>
+
+                    if (i % 3 == 2)
+                    {
+                        <br />
+                    }
+                }
+            </div>*@
+
+        @Html.Label("lblThanks", ("Thank you for using Enalyzer ATM"), new { @class = "lblFont" })
     </div>
 </center>
 <style>
-    body {     
+    body {
         background-color: #2bbed3;
-        color : white;
+        color: white;
     }
 
     #lblTotalCash {
         background-color: #2bbed3;
     }
+
     input {
         border: none;
     }
 
     .addBorder {
-        border:solid thin
+        border: solid thin;
+        font: normal;
+        text-align: right;
     }
 
-    #deposit {     
+    #deposit {
         Font-family: Helvetica Neue,Helvetica,Arial,Sans-serif;
         Font-size: 40px;
         font-weight: bold;
@@ -205,22 +223,55 @@
         /*Add fade transition on hover effects*/
     }
 
-  
+
     #btnNote { /*styles*/
         background-image: url("../../Images/note.png");
         height: 70px;
         width: 130px;
     }
 
-    #btnCoin { /*styles*/
+    #btnCoin { 
         background-image: url("../../Images/coin.png");
         /*background-image: url("../../Images/500-toggle.png");*/
         height: 70px;
         width: 130px;
     }
 
+    /*#btnCoin {*/ 
+    /*background-image: url("../../Images/coin.png");*/
+    /*background-image: url("../../Images/500-toggle.png");
+        height: 58px;
+        width: 60px;
+    }*/
+
+
     .lblFont {
         font-size: 20px;
         width: 200px;
-    }   
+    }
+
+    .back {
+        background-image: url(../../Images/back-arrow-icon.png);
+        background-size: 200px;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 50%;
+        background-clip: border-box;
+        transition: background-size 0.2s;
+        transition-timing-function: cubic-bezier(.07,1.41,.82,1.41);
+        display: inline-block;
+        width: 100px;
+        height: 50px;
+        text-decoration: none;
+        cursor: pointer;
+        overflow: hidden;
+        text-indent: 100%;
+        white-space: nowrap;
+        vertical-align: middle;
+        float: left;
+    }
+
+        .back:hover {
+            background-size: 250px;
+        }
 </style>
